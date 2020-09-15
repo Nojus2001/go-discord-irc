@@ -372,8 +372,8 @@ func (b *Bridge) loop() {
 			}
 
 			// Replace everyone and here - https://git.io/Je1yi
-			content = strings.ReplaceAll(content, "@everyone", "@\u200beveryone")
-			content = strings.ReplaceAll(content, "@here", "@\u200bhere")
+			content = strings.Replace(content, "@everyone", "@\u200beveryone", -1)
+                        content = strings.Replace(content, "@here", "@\u200bhere", -1)
 
 			go func() {
 				err := b.discord.transmitter.Message(
